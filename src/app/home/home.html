@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="sidebar">
+    <h3>Your Conversations</h3>
+    <ul>
+      <li *ngFor="let conv of conversations" (click)="openConversation(conv.id)">
+        {{ conv.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <h3>Start a New Conversation</h3>
+    <input type="text" placeholder="Conversation subject" [(ngModel)]="newConversationName">
+    <button (click)="startConversation()">Start Conversation</button>
+  </div>
+</div>

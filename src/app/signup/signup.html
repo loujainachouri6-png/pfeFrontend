@@ -1,0 +1,44 @@
+<div style="display:flex; justify-content:center; align-items:center; height:100vh;">
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()" style="display:flex; flex-direction:column; width:300px; gap:10px;">
+
+    <h2 style="text-align:center;">Sign Up 📝</h2>
+
+    <!-- Name -->
+    <input type="text" placeholder="Username" formControlName="name">
+    <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
+      Username is required
+    </small>
+
+    <!-- Email -->
+    <input type="email" placeholder="Email" formControlName="email">
+    <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+      Valid email is required
+    </small>
+
+    <!-- Password -->
+    <input type="password" placeholder="Password" formControlName="password">
+    <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+      Password must be at least 8 characters, include uppercase, lowercase and number
+    </small>
+
+    <!-- Confirm Password -->
+    <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+    <small *ngIf="signupForm.errors?.['mismatch'] && signupForm.get('confirmPassword')?.touched">
+      Passwords do not match
+    </small>
+
+    <!-- 🔥 TEMP DEBUG -->
+    <p>Form valid: {{ signupForm.valid }}</p>
+
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+
+    <!-- ✅ Sign In link works now -->
+    <p style="text-align:center; margin-top:10px;">
+      Already have an account?
+      <a routerLink="/signin">Sign In</a>
+    </p>
+    
+
+  </form>
+  <div id="googleBtn" style="display:flex; justify-content:center; margin-top:10px;"></div>
+</div>

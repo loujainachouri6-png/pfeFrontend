@@ -1,0 +1,13 @@
+<div style="display:flex; justify-content:center; align-items:center; height:100vh;">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" style="display:flex; flex-direction:column; width:300px; gap:10px;">
+
+    <h2 style="text-align:center;">Sign In 🔐</h2>
+
+    <input type="email" placeholder="Email" formControlName="email">
+    <input type="password" placeholder="Password" formControlName="password">
+
+    <button type="submit">Login</button>
+
+  </form>
+  <div id="googleBtn" style="display:flex; justify-content:center; margin-top:10px;"></div>
+</div>
